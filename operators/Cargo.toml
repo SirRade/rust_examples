@@ -1,5 +1,5 @@
 [package]
-name = "types"
+name = "operators"
 version = "0.1.0"
 authors = ["jn_fe"]
 

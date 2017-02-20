@@ -1,27 +1,23 @@
-use std::io;
-
-
 fn main() {
-    // Endless loop
-    loop {
-        println!("Wanna do a loop? y/n");
-
-        let mut input = String::new();
-        io::stdin()
-            .read_line(&mut input)
-            .expect("Failed to read from stdin");
-
-        println!("Input: {:?}", input);
-        input = input.to_lowercase();
-        println!("Lowercase: {:?}", input);
-        let trimmed = input.trim();
-        println!("Trimmed: {:?}", trimmed);
-        
-        match trimmed {
-            "y" => {},
-            "n" => {println!("byebye :)"); break;}
-            _   => println!("Invalid input")
-        }
+    for x in 0..10 {
+        println!("{}", x); // x: i32
     }
     
+    for (index, value) in (5..10).enumerate() {
+        println!("index = {} and value = {}", index, value);
+    }
+
+    let lines = "hello\nworld".lines();
+
+    for (linenumber, line) in lines.enumerate() {
+        println!("{}: {}", linenumber, line);
+    }
+
+    'outer: for x in 0..10 {
+        for y in 0..10 {
+            if x * y == 25 {
+                break 'outer;
+            }
+        }
+    }
 }
